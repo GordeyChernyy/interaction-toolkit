@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "displayName": "Interaction Toolkit",
   "description": "2019.4",
-  "dependencies": {
-    "com.madsbangh.easybuttons": "1.0.0"
-  },
+  "dependencies": {},
   "keywords": [
     "interaction",
     "vr"
