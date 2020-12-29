@@ -1,13 +1,18 @@
 {
-	"name" : "com.synestheticecho.interaction-toolkit",
-	"version" : "1.0.0",
-	"displayName" : "Interaction Toolkit",
-	"description" : "2019.4",
-	"dependencies" : {},
-	"keywords" : ["interaction", "vr"],
-	"author" : {
-		"name" : "Synesthetic Echo LLC",
-		"email" : "hello@synestheticecho.com",
-		"url" : "http://www.synestheticecho.com"
-	}
+  "name": "com.synestheticecho.interaction-toolkit",
+  "version": "1.0.0",
+  "displayName": "Interaction Toolkit",
+  "description": "2019.4",
+  "dependencies": {
+    "com.madsbangh.easybuttons": "1.0.0"
+  },
+  "keywords": [
+    "interaction",
+    "vr"
+  ],
+  "author": {
+    "name": "Synesthetic Echo LLC",
+    "email": "hello@synestheticecho.com",
+    "url": "http://www.synestheticecho.com"
+  }
 }
