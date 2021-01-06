@@ -28,7 +28,6 @@ namespace Interaction
         public void SetTo(int mode)
         {
             curRayNum = mode;
-
         }
     }
 }

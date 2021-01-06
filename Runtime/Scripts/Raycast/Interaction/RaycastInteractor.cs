@@ -8,6 +8,7 @@ namespace Interaction
     public class RaycastInteractor : MonoBehaviour, IInteractor
     {
         public IRay ray;
+        public IRaycast raycast;
         public IRaycastPointer pointer;
         public IInteractable target { get; set; }
 
@@ -43,6 +44,7 @@ namespace Interaction
         void Start()
         {
             isEnabled = true;
+            raycast = GetComponent<IRaycast>();
             ray = GetComponent<IRay>();
             pointer = GetComponent<IRaycastPointer>();
             layerMask = LayerMask.GetMask(layerMaskName);
@@ -77,7 +79,7 @@ namespace Interaction
         {
             if (!isEnabled) return;
 
-            if (Physics.Raycast(ray.ray, out _hit, 10f, layerMask))
+            if (raycast.IsHit(ray, out _hit, layerMask))
             {
                 hitPoint = _hit.point;
                 curHitObj = _hit.collider.gameObject;

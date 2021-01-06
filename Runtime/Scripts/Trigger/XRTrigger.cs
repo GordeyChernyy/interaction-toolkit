@@ -7,12 +7,9 @@ using UnityEngine.XR;
 
 namespace Interaction
 {
-
     [RequireComponent(typeof(IInteractor))]
     public class XRTrigger : MonoBehaviour, ITrigger
     {
-
-
         static readonly Dictionary<string, InputFeatureUsage<bool>> availableButtons = new Dictionary<string, InputFeatureUsage<bool>>
         {
             {"triggerButton", CommonUsages.triggerButton },

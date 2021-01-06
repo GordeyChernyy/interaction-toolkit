@@ -4,9 +4,8 @@ using UnityEngine;
 
 namespace Interaction
 {
-    public interface IRay
+    public interface IRaycast
     {
-        Ray ray { get; }
-        GameObject raySource { get; }
+        bool IsHit(IRay ray, out RaycastHit hit, int layerMask);
     }
 }

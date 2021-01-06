@@ -6,7 +6,7 @@ namespace Interaction
 {
     public enum RaycastReceiverType
     {
-        Laser, Bezier, None
+        Laser, Bezier, Parabolic
     }
 
     public class RaycastReceiver : MonoBehaviour
