@@ -26,6 +26,14 @@ namespace Interaction
             curRayNum = mode;
         }
 
+        public void SetTo(System.Type type)
+        {
+            var r = raycasts.Find(obj=>obj.GetType() == type);
+            if (r == null) return;
+            curRayNum = raycasts.IndexOf(r);
+        }
+
+
         public bool IsHit(IRay ray, out RaycastHit hit, int layerMask)
         {
             return Raycast.IsHit(ray, out hit, layerMask);

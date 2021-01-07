@@ -19,8 +19,7 @@ namespace Interaction
 
         public void OnRayEnter(GameObject obj)
         {
-            IsEnabled = raycast.IsContact && obj.GetComponent<RaycastReceiver>().type == RaycastReceiverType.Parabolic;
-            
+            IsEnabled = obj.GetComponent<RaycastReceiver>().type == RaycastReceiverType.Parabolic;
         }
 
         public void OnRayExit()
@@ -49,8 +48,6 @@ namespace Interaction
         {
             lineRenderer.enabled = IsEnabled;
             if (!IsEnabled) return;
-
-       
 
             lineRenderer.SetPosition(0, raycast.Origin);
             Vector3 v = raycast.Velocity;

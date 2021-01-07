@@ -441,6 +441,7 @@ GameObject:
   - component: {fileID: 2689827275180356696}
   - component: {fileID: 4901913207175727139}
   - component: {fileID: 7591456073332245746}
+  - component: {fileID: 3317099540945165498}
   m_Layer: 0
   m_Name: Raycaster
   m_TagString: Untagged
@@ -492,7 +493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raycastHolder: {fileID: 2260269973372926994}
-  curRayNum: 0
+  curRayNum: 1
 --- !u!114 &4901913207175727139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,6 +521,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointersHolder: {fileID: 704305854137014980}
+--- !u!114 &3317099540945165498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3421191657390426288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d0c202b1e4c3a48870f44fa6d91b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selector: {fileID: 8699772435118701213}
+  raycast: {fileID: 2689827275180356696}
 --- !u!1 &4121261945214171514
 GameObject:
   m_ObjectHideFlags: 0

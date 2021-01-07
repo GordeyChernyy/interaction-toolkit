@@ -28,7 +28,8 @@ namespace Interaction
         public string layerMaskName = "Interaction";
 
         int layerMask;
-
+        private bool isHit = false;
+        private bool isHitPrev = false;
 
         public Vector3 GetRayOrigin()
         {
@@ -50,30 +51,6 @@ namespace Interaction
             layerMask = LayerMask.GetMask(layerMaskName);
         }
 
-        private void OnEnable()
-        {
-            selector.onObjSelect += OnObjSelect;
-            selector.onObjRelease += OnObjRelease;
-        }
-
-        private void OnDisable()
-        {
-            selector.onObjSelect += OnObjSelect;
-            selector.onObjRelease += OnObjRelease;
-        }
-
-        private void OnObjSelect(GameObject obj)
-        {
-            if (curHitObj != null)
-                pointer.OnRayEnter(obj);
-        }
-
-        private void OnObjRelease()
-        {
-            if (curHitObj != null)
-                pointer.OnRayExit();
-        }
-
         // Update is called once per frame
         void Update()
         {
@@ -89,23 +66,36 @@ namespace Interaction
                 if (receiver == null)
                 {
                     selector.Release();
-                    OnObjRelease();
                     curHitObj = null;
                     return;
                 }
 
                 receiver.interactor = this;
                 selector.Select(curHitObj);
+
+                isHit = true;
             }
             else // nothing to hit
             {
                 if (curHitObj != null)
                 {
                     selector.Release();
-                    OnObjRelease();
                     curHitObj = null;
                 }
+                isHit = false;
             }
+
+            if (isHitPrev != isHit)
+            {
+                if (isHit) {
+                    pointer.OnRayEnter(curHitObj);
+                }
+                else
+                {
+                    pointer.OnRayExit();
+                }
+            }
+            isHitPrev = isHit;
         }
     }
 }

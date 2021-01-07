@@ -21,8 +21,6 @@ namespace Interaction {
         {
             ITeleportable teleportable = selection.selectedObject.GetComponent<ITeleportable>();
 
-            Debug.Log(teleportable);
-
             if (teleportable == null) return;
 
             rig.transform.position = teleportable.Position;
