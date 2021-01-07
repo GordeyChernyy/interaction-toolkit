@@ -7,6 +7,7 @@ namespace Interaction
     {
         public Selector selector;
         public CompositeRaycast raycast;
+        public CompositeRaycastPointer pointer;
 
         private void OnEnable()
         {
@@ -23,6 +24,7 @@ namespace Interaction
         private void OnObjRelease()
         {
             raycast.SetTo(typeof(LinearRaycast));
+            pointer.SetTo(null, null);
         }
 
         private void OnObjSelect(GameObject obj)
@@ -34,14 +36,23 @@ namespace Interaction
             switch (receiver.type)
             {
                 case RaycastReceiverType.Parabolic:
-                    raycast.SetTo(typeof(ParabolicRaycast));
-                    break;
+                    {
+                        raycast.SetTo(typeof(ParabolicRaycast));
+                        pointer.SetTo(typeof(ParabolicPointer), obj);
+                        break;
+                    }
                 case RaycastReceiverType.Laser:
-                    raycast.SetTo(typeof(LinearRaycast));
-                    break;
+                    {
+                        raycast.SetTo(typeof(LinearRaycast));
+                        pointer.SetTo(typeof(RaycastLaserPointer), obj);
+                        break;
+                    }
                 case RaycastReceiverType.Bezier:
-                    raycast.SetTo(typeof(LinearRaycast));
-                    break;
+                    {
+                        raycast.SetTo(typeof(LinearRaycast));
+                        pointer.SetTo(typeof(RaycastBezierPointer), obj);
+                        break;
+                    }
             }
         }
     }

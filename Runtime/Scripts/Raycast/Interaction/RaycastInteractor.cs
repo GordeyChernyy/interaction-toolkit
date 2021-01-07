@@ -66,6 +66,7 @@ namespace Interaction
                 if (receiver == null)
                 {
                     selector.Release();
+                    pointer.OnRayExit();
                     curHitObj = null;
                     return;
                 }

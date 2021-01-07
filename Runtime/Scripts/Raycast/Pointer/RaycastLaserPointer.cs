@@ -7,7 +7,6 @@ namespace Interaction
     public class RaycastLaserPointer : MonoBehaviour, IRaycastPointer
     {
         bool isEnabled = false;
-        RaycastReceiver receiver;
 
         public LineRenderer lineRenderer;
 
@@ -24,8 +23,7 @@ namespace Interaction
 
         public void OnRayEnter(GameObject obj)
         {
-            receiver = obj.GetComponent<RaycastReceiver>();
-            isEnabled = receiver?.type == RaycastReceiverType.Laser;
+            isEnabled = true;
         }
 
         public void OnRayExit()

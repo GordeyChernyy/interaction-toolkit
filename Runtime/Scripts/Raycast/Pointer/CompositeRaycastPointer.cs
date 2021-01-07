@@ -12,6 +12,8 @@ namespace Interaction
 
         public RaycastInteractor interactor { get; set; }
 
+        IRaycastPointer curPointer;
+
         private void Start()
         {
             interactor = GetComponent<RaycastInteractor>();
@@ -21,18 +23,30 @@ namespace Interaction
                 p.interactor = interactor;
         }
 
+        public void SetTo(System.Type type, GameObject selected)
+        {
+            var r = pointers.Find(obj => obj.GetType() == type);
+
+            if (r == null) {
+                curPointer?.OnRayExit();
+                return;
+            }
+
+            curPointer?.OnRayExit();
+            curPointer = r;
+            curPointer.OnRayEnter(selected);
+        }
+
         public void OnRayEnter(GameObject obj)
         {
-            foreach (var p in pointers)
-                p.OnRayEnter(obj);
+            //foreach (var p in pointers)
+            //    p.OnRayEnter(obj);
         }
 
         public void OnRayExit()
         {
-            foreach (var p in pointers)
-                p.OnRayExit();
+            //foreach (var p in pointers)
+            //    p.OnRayExit();
         }
-
-
     }
 }

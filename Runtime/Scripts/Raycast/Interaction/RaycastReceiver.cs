@@ -22,6 +22,9 @@ namespace Interaction
         private GameObject _snapTarget;
         public GameObject snapTarget { get => _snapTarget != null ? _snapTarget : gameObject; }
 
+
+
+
         public bool isSelf {
             get {
                 if (interactor == null || interactor.curHitObj == null) return false;

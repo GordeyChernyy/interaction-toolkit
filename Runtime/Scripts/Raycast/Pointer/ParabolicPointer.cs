@@ -19,7 +19,7 @@ namespace Interaction
 
         public void OnRayEnter(GameObject obj)
         {
-            IsEnabled = obj.GetComponent<RaycastReceiver>().type == RaycastReceiverType.Parabolic;
+            IsEnabled = true;
         }
 
         public void OnRayExit()
