@@ -19,6 +19,8 @@ namespace Interaction {
 
         public void Press()
         {
+            if (selection.selectedObject == null) return;
+
             ITeleportable teleportable = selection.selectedObject.GetComponent<ITeleportable>();
 
             if (teleportable == null) return;
