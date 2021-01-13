@@ -37,6 +37,7 @@ namespace Interaction
             on2DMode.Invoke();
         }
 
+#if UNITY_EDITOR
         void OnGUI()
         {
             if (!isGui) return;
@@ -50,8 +51,16 @@ namespace Interaction
 
             GUIStyle style = new GUIStyle();
             style.fontSize = 10;
-            GUI.Label(new Rect(10, 90, 100, 30), "Press TAB to hide", style);
-
+            GUI.Label(new Rect(10, 90, 100, 30), "Press T to hide", style);
         }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                isGui ^= true;
+            }
+        }
+#endif
     }
 }
