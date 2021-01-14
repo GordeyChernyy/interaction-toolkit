@@ -8,4 +8,4 @@ For usage, see LICENSE
 
 1. Install Oculus Integration from Unity Assets
 
-2. Add package https://github.com/madsbangh/EasyButtons.git#0.0.6
+2. Add package https://github.com/madsbangh/EasyButtons.git#upm
